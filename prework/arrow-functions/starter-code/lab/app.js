@@ -13,7 +13,7 @@ console.log('The old way:', theOldWay('Code 301'));
 // STEP 2
 // We can refactor our first function to use an arrow function.
 // The word "function" is removed and an arrow is added in between the parameter and the opening curly brace
-const theNewWay = (course) => {
+const theNewWay = course => {
   return `I am currently enrolled in ${course}`;
 };
 
@@ -126,30 +126,33 @@ console.log(sum(1, 2, 3, 4));
 //   };
 // };
 // My arrow function
-const objectLit =  => ({
-  key1: 'value1',
-  key2: 'value2',
-  key3: 'value3',
-})
+const objectLit = () => {
+  return {
+    key1: 'value1',
+    key2: 'value2',
+    key3: 'value3',
+  };
+}
 // TODO: Uncomment the following line of code to see the output in the browser console
 console.log(objectLit());
 
 
-let sumAndProduct = function(a, b) {
+// let sumAndProduct = function(a, b) {
+//   let sum = a + b;
+//   let product = a * b;
+//   return [sum, product];
+// };
+// My arrow function
+let sumAndProduct = (a, b) => {
   let sum = a + b;
   let product = a * b;
   return [sum, product];
-};
-// My arrow function
-const sumAndProduct = (a, b) => {
-   const sum = a + b;
-    const product = a * b; 
 }
 // TODO: Uncomment the following line of code to see the output in the browser console
 console.log(sumAndProduct(3, 9));
 
 
-let message = function(name) {
+let message = (name) => {
   return `Hello, ${name}!`;
 };
 
@@ -185,9 +188,7 @@ console.log(joe.greeting());
 
 
 
-Student.courseName = function() {
-  return 'This student is enrolled in Code 301.';
-};
+Student.courseName = () => 'This student is enrolled in Code 301.';
 
 // TODO: Uncomment the following line of code to see the output in the browser console
 console.log(Student.courseName());
@@ -201,17 +202,17 @@ Student.prototype.scope = function() {
 };
 
 // TODO: Uncomment the following line of code to see the output in the browser console
-// console.log(joe.scope());
+console.log(joe.scope());
 
 Student.prototype.scopeArrow = () => console.log(this);
 
 // TODO: Uncomment the following line of code to see the output in the browser console
-// console.log(joe.scopeArrow());
+console.log(joe.scopeArrow());
 
 // TODO: Write a COMMENT below to answer the following questions.
 // 1. What is "this" when joe.scope() is invoked?
-//
+// the global window object.
 // 2. What is "this" when joe.scopeArrow() is invoked?
-//
+// the scope for the arrow function.
 // 3. Explain why "this" is different when an arrow function is used.
-//
+// because arrow functions retain the this value of the enclosing functional scope.
